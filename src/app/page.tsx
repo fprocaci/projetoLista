@@ -5,9 +5,8 @@ import Contato from "./contato/page";
 
 export default function Home() {
   return (
-    <div className="container mx-auto bg-gray-200">
-      <Header />
-      <main className="container mx-auto h-screen flex items-center justify-center">
+    <div className="container mx-auto">
+      <main className="container mx-auto flex items-center justify-center">
         <Contador />
         <MegaSena />
       </main>

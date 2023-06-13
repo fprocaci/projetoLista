@@ -51,15 +51,13 @@ export default function Contato() {
 
   return (
     <div className="w-full h-screen bg-[#F5F5F7] ">
-      <div className="w-full h-[100px] flex items-center justify-center border-b-[1px] shadow-md shadow-slate-900/25 ">
-        <a href="../" className="text-[#333336] text-[24px]">
-          Adicionar Produtos
-        </a>
+      <div className="p-5 flex justify-center">
+        <h1 className="text-lg">Adicionar Produtos</h1>
       </div>
 
       <form
         action=""
-        className="mx-auto w-[400px] mt-10 p-5 flex text-[#86868b] flex-col bg-white rounded-[20px] "
+        className="mx-auto w-[400px] mt-1 p-5 flex text-[#86868b] flex-col bg-white rounded-[20px] "
       >
         Nome:
         <input
@@ -97,22 +95,37 @@ export default function Contato() {
         </button>
       </form>
 
-      <div className="mx-auto w-[400px] mt-10 p-5 flex text-[#86868b] flex-col bg-white rounded-[20px] ">
+      <div className="mx-auto w-[800px] mt-10 p-5 flex text-[#86868b] flex-col bg-white rounded-[20px] ">
         <h1 className="mb-2">Produtos cadastrados ({products.length})</h1>
-        <ul className="flex flex-col divide-y divide-dashed divide-slate-400">
-          {products.map((item, index) => (
-            <li key={index} className="p-2 flex items-center justify-between">
-              {item.name} Qtd:{item.amount} Valor R${item.price} Total:
-              {item.total}
-              <button
-                onClick={() => handleRemoveItem(index)}
-                className="w-10 h-10 bg-red-500 hover:bg-red-500/90 rounded-[5px] text-white"
-              >
-                X
-              </button>
-            </li>
-          ))}
-        </ul>
+        <table className="">
+          <thead className="bg-cyan-900 text-emerald-500">
+            <tr>
+              <th className="py-2">Nome</th>
+              <th className="py-2">Quantidade</th>
+              <th className="py-2">Preço unitário</th>
+              <th className="py-2">Total</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody className="">
+            {products.map((item, index) => (
+              <tr key={index} className="text-center border-y border-slate-300">
+                <td className="border-y border-slate-300">{item.name}</td>
+                <td className="border-y border-slate-300">{item.amount}</td>
+                <td className="border-y border-slate-300">R${item.price}</td>
+                <td className="border-y border-slate-300">R${item.total}</td>
+                <td className="py-3">
+                  <button
+                    onClick={() => handleRemoveItem(index)}
+                    className="w-10 h-10 bg-red-500 hover:bg-red-500/90 rounded-[5px] text-white"
+                  >
+                    X
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
